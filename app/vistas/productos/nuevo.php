@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <label for="categoria">Categoría:</label>
-        <select id="categoria" name="categoria" required>
+        <select id="categoria" name="idCategoria" required>
             <option value="">Seleccione una categoría</option>
             <?php
             foreach ($categorias as $categoria): ?>

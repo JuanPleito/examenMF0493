@@ -1,3 +1,4 @@
+-- Active: 1750671264608@@127.0.0.1@3306@tienda_web
 drop database if exists tienda_web ; -- peligro
 
 create database if not exists  tienda_web 
@@ -6,10 +7,6 @@ character set latin1
 
 use tienda_web;
 
-create user admin_tienda 
-identified by 'P100cpbvepatv!';
-
-grant all PRIVILEGES on tienda_web.* to admin_tienda;
 
 create table usuarios (
     id int unsigned AUTO_INcreMENT primary key,
@@ -19,8 +16,7 @@ create table usuarios (
     rol enum('admin','usuario') not null default 'usuario'
 );
 
-insert into usuarios (nombre_usuario,email,contrasena,rol) values
-('admin','123456');
+
 
 create TABLE   categorias (
     id int unsigned AUTO_INcreMENT primary key,
@@ -37,4 +33,7 @@ create table productos (
     foreign key (idCategoria) references categorias(id)
 );
 
-
+insert into categorias(nombre_categoria) values
+('Electrónica'),
+('Ropa'),
+('Libros');

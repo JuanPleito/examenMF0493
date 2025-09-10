@@ -1,10 +1,10 @@
 
 <div class="detalle-producto-container">
     <div class="detalle-producto-img">
-        <img src="<?= BASE_URL ?>/assests/<?= htmlspecialchars($producto['imagen_url']) ?>" alt="<?= htmlspecialchars($producto['nombre_producto']) ?>">
+        <img src="<?= BASE_URL ?>/assests/<?= htmlspecialchars($producto->getImagenUrl()) ?>" ?>">
     </div>
     <div class="detalle-producto-info">
-        <h2><?= htmlspecialchars($producto['nombre_producto']) ?></h2>
+        <h2><?= htmlspecialchars($producto->getNombreProducto()) ?></h2>
         <p class="detalle-producto-descripcion"><?= htmlspecialchars($producto['descripcion']) ?></p>
         <p class="detalle-producto-precio"><strong>Precio:</strong> <?= htmlspecialchars($producto['precio']) ?> €</p>
         <p class="detalle-producto-stock"><strong>Unidades disponibles:</strong> <?= htmlspecialchars($producto['stock']) ?></p>

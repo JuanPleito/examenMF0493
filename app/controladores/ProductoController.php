@@ -36,6 +36,7 @@ require_once(__DIR__ . '/../modelos/Producto.php');
             $descripcion = $_POST['descripcion'];
             $precio = $_POST['precio'];
             $stock = $_POST['stock'];
+            $idCategoria = $_POST['idCategoria'];
 
             // Manejar la subida de la imagen
             $imagen_url = null;
@@ -56,8 +57,9 @@ require_once(__DIR__ . '/../modelos/Producto.php');
                 $precio,
                 $stock,
                 $imagen_url,
-                0,
-                $this->bd
+                $idCategoria,
+                $this->bd,
+                0
             );
 
             // Guardar en la base de datos
@@ -74,13 +76,13 @@ require_once(__DIR__ . '/../modelos/Producto.php');
         public function mostrar_detalle($id) {
             // Obtener el producto por su id
             $producto = Producto::getProductoPorId($this->bd, $id);
-
+            var_dump($producto);
             // Si no existe, mostrar error o redirigir
             if (!$producto) {
                 $vista = __DIR__ . '/../vistas/productos/listado.php';
                 $error = "Producto no encontrado.";
                 require(__DIR__ . '/../vistas/layout.php');
-                return;
+                // return;
             }
 
             // Mostrar la vista de detalle
